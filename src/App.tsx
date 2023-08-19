@@ -1,8 +1,13 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import rainbow from "/images/rainbow.svg";
 // import ioLogo from "/images/google-io-logo.svg";
 import ioLogo from "/images/io-logo.svg";
 
 function App() {
+  const navigate = useNavigate();
+  const [code, setCode] = useState("");
+
   return (
     <section className="bg-[#202124] text-white h-screen grid place-items-center xl:px-20 py-5 px-5 sm:px-10 md:px-14">
       <div className="xl:p-20 p-10 md:p-14 pt-20 border-2 border-[#FEFEFE] rounded-2xl overflow-hidden relative w-full h-full">
@@ -25,10 +30,16 @@ function App() {
           <div className="flex gap-3 md:justify-start justify-center">
             <input
               type="text"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
               className="bg-[#1F1F1F] sm:max-w-[300px] font-google-reg w-full border-2 border-[#5D5D5D] py-3 px-7 rounded-md text-lg lg:text-xl"
-              placeholder="Enter Email"
+              placeholder="Enter Code"
             />
-            <button className="hidden md:block text-lg  lg:text-xl transition-colors bg-[#428EFF] py-3 px-5 border-2 border-black hover:bg-[#8ab4f8]  text-black rounded-lg font-google-mid">
+            <button
+              type="button"
+              onClick={() => navigate(`certificate/${code}`)}
+              className="hidden md:block text-lg  lg:text-xl transition-colors bg-[#428EFF] py-3 px-5 border-2 border-black hover:bg-[#8ab4f8]  text-black rounded-lg font-google-mid"
+            >
               Get Certificate
             </button>
 
