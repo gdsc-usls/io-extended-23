@@ -22,7 +22,7 @@ export const Certificate = () => {
     <section className="bg-[#202124] min-h-screen text-white grid place-items-center">
       <Tilt gyroscope className="max-w-[900px] mx-auto">
         <div className="w-full relative rounded-lg grid place-items-center overflow-hidden">
-          <p className="absolute font-google-reg uppercase md:left-24 text-gray-300">
+          <p className="absolute font-google-reg text-gray-300 left-16 sm:left-24 md:left-28 lg:left-36 [font-size:clamp(14px,3vw,24px)] mb-1">
             {data.firstName} {data.lastName}
           </p>
           <img
