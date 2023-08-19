@@ -31,7 +31,7 @@ function App() {
             <input
               type="text"
               value={code}
-              onChange={(e) => setCode(e.target.value)}
+              onChange={(e) => setCode(e.target.value.toUpperCase())}
               className="bg-[#1F1F1F] sm:max-w-[300px] font-google-reg w-full border-2 border-[#5D5D5D] py-3 px-7 rounded-md text-lg lg:text-xl"
               placeholder="Enter Code"
             />
