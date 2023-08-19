@@ -21,7 +21,7 @@ export const Certificate = () => {
 
   return (
     <section className="bg-[#202124] flex flex-col justify-center items-center min-h-screen text-white py-24">
-      {data.code ? (
+      {data.email ? (
         <Tilt gyroscope className="max-w-[900px] mx-auto">
           <div className="w-full relative rounded-lg grid place-items-center overflow-hidden">
             <p className="absolute font-google-reg text-gray-300 left-16 sm:left-24 md:left-28 lg:left-36 [font-size:clamp(14px,3vw,24px)] mb-1">
