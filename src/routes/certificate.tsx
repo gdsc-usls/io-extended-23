@@ -21,19 +21,22 @@ export const Certificate = () => {
 
   return (
     <section className="bg-[#202124] flex flex-col justify-center items-center min-h-screen text-white py-24">
-      <Tilt gyroscope className="max-w-[900px] mx-auto">
-        <div className="w-full relative rounded-lg grid place-items-center overflow-hidden">
-          <p className="absolute font-google-reg text-gray-300 left-16 sm:left-24 md:left-28 lg:left-36 [font-size:clamp(14px,3vw,24px)] mb-1">
-            {data.firstName} {data.lastName}
-          </p>
-          <img
-            className="w-full pointer-events-none h-full object-cover"
-            src="/images/participation.png"
-            alt="PowerOn Certificate"
-          />
-        </div>
-      </Tilt>
-
+      {data.code ? (
+        <Tilt gyroscope className="max-w-[900px] mx-auto">
+          <div className="w-full relative rounded-lg grid place-items-center overflow-hidden">
+            <p className="absolute font-google-reg text-gray-300 left-16 sm:left-24 md:left-28 lg:left-36 [font-size:clamp(14px,3vw,24px)] mb-1">
+              {data.firstName} {data.lastName}
+            </p>
+            <img
+              className="w-full pointer-events-none h-full object-cover"
+              src="/images/participation.png"
+              alt="PowerOn Certificate"
+            />
+          </div>
+        </Tilt>
+      ) : (
+        <h1>Certificate not found</h1>
+      )}
       <button
         type="button"
         onClick={() => navigate("/")}
