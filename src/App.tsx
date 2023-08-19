@@ -4,9 +4,9 @@ import ioLogo from "/images/io-logo.svg";
 
 function App() {
   return (
-    <section className="bg-[#202124] text-white h-screen grid place-items-center xl:p-20 p-5 sm:p-10 md:p-14">
+    <section className="bg-[#202124] text-white h-screen grid place-items-center xl:px-20 py-5 px-5 sm:px-10 md:px-14">
       <div className="xl:p-20 p-10 md:p-14 pt-20 border-2 border-[#FEFEFE] rounded-2xl overflow-hidden relative w-full h-full">
-        <div className="space-y-10">
+        <div className="space-y-10 z-20 relative">
           <img
             src={ioLogo}
             alt="Google I/O Logo"
@@ -28,11 +28,11 @@ function App() {
               className="bg-[#1F1F1F] sm:max-w-[300px] font-google-reg w-full border-2 border-[#5D5D5D] py-3 px-7 rounded-md text-lg lg:text-xl"
               placeholder="Enter Email"
             />
-            <button className="hidden md:block text-lg lg:text-xl bg-[#428EFF] py-3 px-5 hover:bg-[#8ab4f8]  text-black rounded-lg font-google-mid">
+            <button className="hidden md:block text-lg  lg:text-xl transition-colors bg-[#428EFF] py-3 px-5 border-2 border-black hover:bg-[#8ab4f8]  text-black rounded-lg font-google-mid">
               Get Certificate
             </button>
 
-            <button className="block md:hidden text-xl bg-[#428EFF] py-3 px-5 rounded-lg font-google-mid">
+            <button className="block md:hidden text-xl bg-[#428EFF] text-black border-2 border-black  py-3 px-5 rounded-lg font-google-mid">
               &rarr;
             </button>
           </div>
