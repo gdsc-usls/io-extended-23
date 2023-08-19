@@ -1,34 +1,46 @@
 import rainbow from "/images/rainbow.svg";
-import ioLogo from "/images/google-io-logo.svg";
+// import ioLogo from "/images/google-io-logo.svg";
+import ioLogo from "/images/io-logo.svg";
 
 function App() {
   return (
-    <section className="bg-[#202124] text-white h-screen grid place-items-center p-20">
-      <div className="p-20 border-2 border-[#FEFEFE] rounded-2xl overflow-hidden relative w-full h-full">
+    <section className="bg-[#202124] text-white h-screen grid place-items-center xl:p-20 p-5 sm:p-10 md:p-14">
+      <div className="xl:p-20 p-10 md:p-14 pt-20 border-2 border-[#FEFEFE] rounded-2xl overflow-hidden relative w-full h-full">
         <div className="space-y-10">
-          <div>
-            <img src={ioLogo} alt="Google I/O Logo" />
-            <h1 className="font-medium text-6xl">Extended Bacolod 2023</h1>
-          </div>
-          <p className="text-2xl text-gray-400 w-1/2">
-            Lorem ipsum dolor sit amet consectetur. Porttitor felis neque mollis
-            vel diam non massa. Diam elementum lectus.
+          <img
+            src={ioLogo}
+            alt="Google I/O Logo"
+            className="mx-auto md:mr-auto h-[100px] lg:h-[80px] md:mx-0"
+          />
+
+          <p className="text-3xl font-google-mid whitespace-nowrap xl:text-6xl text-center lg:text-5xl sm:text-4xl md:text-left">
+            Google I/O Extended <br /> Bacolod 2023
           </p>
-          <div className="flex gap-3">
+
+          <p className="xl:text-2xl md:text-left text-xl text-gray-400 xl:w-1/2 md:w-3/4 lg:w-1/2 lg:text- w-full text-center xl:text-left font-google-reg">
+            A series of community led tech meetups, that bring the knowledge and
+            excitement of Google I/O to developers on a city level, all around
+            the globe.
+          </p>
+          <div className="flex gap-3 md:justify-start justify-center">
             <input
               type="text"
-              className="bg-[#1F1F1F] border-2 border-[#5D5D5D] py-3 px-7 rounded-md text-xl"
+              className="bg-[#1F1F1F] sm:max-w-[300px] font-google-reg w-full border-2 border-[#5D5D5D] py-3 px-7 rounded-md text-lg lg:text-xl"
               placeholder="Enter Email"
             />
-            <button className="text-xl bg-[#428EFF] py-3 px-10 rounded-md font-google-mid">
+            <button className="hidden md:block text-lg lg:text-xl bg-[#428EFF] py-3 px-5 hover:bg-[#8ab4f8]  text-black rounded-lg font-google-mid">
               Get Certificate
+            </button>
+
+            <button className="block md:hidden text-xl bg-[#428EFF] py-3 px-5 rounded-lg font-google-mid">
+              &rarr;
             </button>
           </div>
         </div>
         <img
           src={rainbow}
           alt="Rainbow"
-          className="absolute left-0 bottom-0 scale-105 w-full pointer-events-none"
+          className="absolute left-0 bottom-0 xl:scale-105 w-full pointer-events-none"
         />
       </div>
     </section>
