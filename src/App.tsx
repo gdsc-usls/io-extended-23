@@ -43,7 +43,10 @@ function App() {
               Get Certificate
             </button>
 
-            <button className="block md:hidden text-xl bg-[#428EFF] text-black border-2 border-black  py-3 px-5 rounded-lg font-google-mid">
+            <button
+              onClick={() => navigate(`certificate/${code}`)}
+              className="block md:hidden text-xl bg-[#428EFF] text-black border-2 border-black  py-3 px-5 rounded-lg font-google-mid"
+            >
               &rarr;
             </button>
           </div>
