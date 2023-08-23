@@ -3,17 +3,10 @@ import { toPng } from "html-to-image";
 import { useCallback, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import { Member } from "../types";
 import { db } from "../config/firebase";
 import { doc } from "firebase/firestore";
 import { useDoc } from "../hooks/firestore";
-
-interface Member {
-  code: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  timestamp: any;
-}
 
 export const Certificate = () => {
   const navigate = useNavigate();
@@ -55,8 +48,10 @@ export const Certificate = () => {
               </p>
               <img
                 className="w-full pointer-events-none h-full object-cover"
-                src="/images/attendee.png"
-                alt="PowerOn Certificate"
+                src={`/images/${
+                  data.type === "speaker" ? "speaker" : "attendee"
+                }.png`}
+                alt="Google I/O Certificate"
               />
             </div>
           </Tilt>
