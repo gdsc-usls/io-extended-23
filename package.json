@@ -19,6 +19,7 @@
     "react-firebase-hooks": "^5.1.1",
     "react-parallax-tilt": "^1.7.161",
     "react-router-dom": "^6.15.0",
+    "sonner": "^0.6.2",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {

@@ -1,10 +1,12 @@
 import React from "react";
+import { Toaster } from "sonner";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import "./index.css";
 import App from "./App";
-import ReactDOM from "react-dom/client";
 import { ErrorPage } from "./components";
 import { Certificate, Manage, Root } from "./routes";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
+    <Toaster />
     <RouterProvider router={router} />
   </React.StrictMode>
 );

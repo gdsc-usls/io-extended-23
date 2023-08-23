@@ -32,6 +32,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.15.0
     version: 6.15.0(react-dom@18.2.0)(react@18.2.0)
+  sonner:
+    specifier: ^0.6.2
+    version: 0.6.2(react-dom@18.2.0)(react@18.2.0)
   sort-by:
     specifier: ^1.2.0
     version: 1.2.0
@@ -6087,6 +6090,16 @@ packages:
       ansi-styles: 3.2.1
       astral-regex: 1.0.0
       is-fullwidth-code-point: 2.0.0
+    dev: false
+
+  /sonner@0.6.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-bh4FWhYoNN481ZIW94W4e0kSLBTMGislYg2YXvDS1px1AJJz4erQe9jHV8s5pS1VMVDgfh3CslNSFLaU6Ldrnw==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /sort-by@1.2.0:

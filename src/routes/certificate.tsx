@@ -1,6 +1,7 @@
 import Tilt from "react-parallax-tilt";
+import { toast } from "sonner";
 import { toPng } from "html-to-image";
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { Member } from "../types";
@@ -34,6 +35,15 @@ export const Certificate = () => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardRef, data]);
+
+  useEffect(() => {
+    if (!loading && data.firstName) {
+      toast.success("Certificate Generated!");
+    } else if (!loading && !data.firstName) {
+      toast.error("Certificate not found!");
+      navigate("/");
+    }
+  }, [loading, data]);
 
   return (
     <section className="bg-[#202124] flex flex-col justify-center items-center min-h-screen text-white py-24">
