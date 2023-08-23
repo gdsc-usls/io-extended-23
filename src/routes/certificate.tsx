@@ -18,7 +18,7 @@ interface Member {
 export const Certificate = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const [data] = useDoc<Omit<Member & { id: string }, "code">>(
+  const [data, loading] = useDoc<Omit<Member & { id: string }, "code">>(
     doc(db, `certificates/io/members/${params.code}`)
   );
 
@@ -44,7 +44,9 @@ export const Certificate = () => {
 
   return (
     <section className="bg-[#202124] flex flex-col justify-center items-center min-h-screen text-white py-24">
-      {data.email ? (
+      {loading ? (
+        <span className="loader"></span>
+      ) : data.email ? (
         <div ref={cardRef}>
           <Tilt gyroscope className="max-w-[900px] mx-auto">
             <div className="w-full relative grid place-items-center overflow-hidden">
