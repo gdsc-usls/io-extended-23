@@ -1,14 +1,7 @@
 import { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
-
-interface Member {
-  code: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  timestamp: any;
-}
+import { Member } from "../types";
 
 export const Manage = () => {
   if (import.meta.env.PROD) {
@@ -21,12 +14,15 @@ export const Manage = () => {
     const parsedMembers: Member[] = JSON.parse(members);
 
     parsedMembers.forEach(async (member) => {
-      await setDoc(doc(db, `certificates/io/members/${member.code}`), {
-        firstName: member.firstName,
-        lastName: member.lastName,
-        email: member.email,
-        timestamp: member.timestamp,
-      });
+      await setDoc(
+        doc(db, `certificates/io/members/${member.code.toUpperCase()}`),
+        {
+          firstName: member.firstName,
+          lastName: member.lastName,
+          email: member.email,
+          type: member.type,
+        }
+      );
     });
 
     setTimeout(() => {
@@ -40,7 +36,7 @@ export const Manage = () => {
         e.preventDefault();
         handleImport();
       }}
-      className="max-w-screen-sm py-20 mx-auto text-white flex flex-col z-10"
+      className="max-w-screen-sm py-20 mx-auto text-white flex flex-col z-10 bg-[#202124] min-h-screen px-6"
     >
       <div>
         <h1 className="mb-2 text-2xl font-bold mt-24">Import Members</h1>
