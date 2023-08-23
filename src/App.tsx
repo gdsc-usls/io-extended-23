@@ -27,8 +27,15 @@ function App() {
             excitement of Google I/O to developers on a city level, all around
             the globe.
           </p>
-          <div className="flex gap-3 md:justify-start justify-center">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              navigate(`certificate/${code}`);
+            }}
+            className="flex gap-3 md:justify-start justify-center"
+          >
             <input
+              required
               type="text"
               value={code}
               onChange={(e) => setCode(e.target.value.toUpperCase())}
@@ -36,8 +43,7 @@ function App() {
               placeholder="Enter Code"
             />
             <button
-              type="button"
-              onClick={() => navigate(`certificate/${code}`)}
+              type="submit"
               className="hidden md:block text-lg  lg:text-xl transition-colors bg-[#428EFF] py-3 px-5 border-2 border-black hover:bg-[#8ab4f8]  text-black rounded-lg font-google-mid"
             >
               Get Certificate
@@ -49,7 +55,7 @@ function App() {
             >
               &rarr;
             </button>
-          </div>
+          </form>
         </div>
         <img
           src={rainbow}
