@@ -1,2 +1,1 @@
-![368334115_272455498876556_490797899415371837_n](https://github.com/gdsc-usls/io-extended/assets/69457996/1f8747c1-5016-4feb-8e55-ef270458a87a)
-
+![Google I/O](https://github.com/gdsc-usls/io-extended/assets/69457996/6c727e0c-a2c4-4225-8e8f-5156f84133f2)
