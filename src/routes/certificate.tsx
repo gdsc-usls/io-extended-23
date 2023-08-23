@@ -23,7 +23,11 @@ export const Certificate = () => {
       return;
     }
 
-    toPng(cardRef.current, { cacheBust: true })
+    toPng(cardRef.current, {
+      canvasWidth: 3024.3,
+      canvasHeight: 4245,
+      cacheBust: true,
+    })
       .then((dataUrl) => {
         const link = document.createElement("a");
         link.download = `${data?.id}_${data.firstName}.png`;
@@ -50,8 +54,8 @@ export const Certificate = () => {
       {loading ? (
         <span className="loader"></span>
       ) : data.email ? (
-        <div ref={cardRef}>
-          <Tilt gyroscope className="max-w-[900px] mx-auto">
+        <Tilt gyroscope className="max-w-[900px] mx-auto">
+          <div ref={cardRef}>
             <div className="w-full relative grid place-items-center overflow-hidden">
               <p className="absolute font-google-reg text-gray-300 left-16 sm:left-24 md:left-28 lg:left-36 [font-size:clamp(14px,3vw,24px)] mb-1">
                 {data.firstName} {data.lastName}
@@ -64,8 +68,8 @@ export const Certificate = () => {
                 alt="Google I/O Certificate"
               />
             </div>
-          </Tilt>
-        </div>
+          </div>
+        </Tilt>
       ) : (
         <h1>Certificate not found</h1>
       )}
