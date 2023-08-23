@@ -23,6 +23,8 @@ export const Certificate = () => {
       return;
     }
 
+    toast.message("Saving Image...");
+
     toPng(cardRef.current, {
       canvasWidth: 3024.3,
       canvasHeight: 4245,
@@ -33,6 +35,7 @@ export const Certificate = () => {
         link.download = `${data?.id}_${data.firstName}.png`;
         link.href = dataUrl;
         link.click();
+        toast.success("Image Saved!");
       })
       .catch((err) => {
         console.log(err);
@@ -54,41 +57,43 @@ export const Certificate = () => {
       {loading ? (
         <span className="loader"></span>
       ) : data.email ? (
-        <Tilt gyroscope className="max-w-[900px] mx-auto">
-          <div ref={cardRef}>
-            <div className="w-full relative grid place-items-center overflow-hidden">
-              <p className="absolute font-google-reg text-gray-300 left-16 sm:left-24 md:left-28 lg:left-36 [font-size:clamp(14px,3vw,24px)] mb-1">
-                {data.firstName} {data.lastName}
-              </p>
-              <img
-                className="w-full pointer-events-none h-full object-cover"
-                src={`/images/${
-                  data.type === "speaker" ? "speaker" : "attendee"
-                }.png`}
-                alt="Google I/O Certificate"
-              />
+        <>
+          <Tilt gyroscope className="max-w-[900px] mx-auto">
+            <div ref={cardRef}>
+              <div className="w-full relative grid place-items-center overflow-hidden">
+                <p className="absolute font-google-reg text-gray-300 left-16 sm:left-24 md:left-28 lg:left-36 [font-size:clamp(14px,3vw,24px)] mb-1">
+                  {data.firstName} {data.lastName}
+                </p>
+                <img
+                  className="w-full pointer-events-none h-full object-cover"
+                  src={`/images/${
+                    data.type === "speaker" ? "speaker" : "attendee"
+                  }.png`}
+                  alt="Google I/O Certificate"
+                />
+              </div>
             </div>
+          </Tilt>
+          <div className="flex gap-x-2 text-sm font-google-mid mt-12">
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="border border-secondary-200 rounded-l-full px-8 py-3 hover:scale-105 transform transition-all duration-200 bg-secondary-300 bg-opacity-60"
+            >
+              &larr; &nbsp; Back
+            </button>
+            <button
+              type="button"
+              onClick={saveImage}
+              className="border border-secondary-200 rounded-r-full px-8 py-3 hover:scale-105 transform transition-all duration-200 bg-secondary-300 bg-opacity-60"
+            >
+              Save
+            </button>
           </div>
-        </Tilt>
+        </>
       ) : (
         <h1>Certificate not found</h1>
       )}
-      <div className="flex gap-x-2 text-sm font-google-mid mt-12">
-        <button
-          type="button"
-          onClick={() => navigate("/")}
-          className="border border-secondary-200 rounded-l-full px-8 py-3 hover:scale-105 transform transition-all duration-200 bg-secondary-300 bg-opacity-60"
-        >
-          &larr; &nbsp; Back
-        </button>
-        <button
-          type="button"
-          onClick={saveImage}
-          className="border border-secondary-200 rounded-r-full px-8 py-3 hover:scale-105 transform transition-all duration-200 bg-secondary-300 bg-opacity-60"
-        >
-          Save
-        </button>
-      </div>
     </section>
   );
 };
