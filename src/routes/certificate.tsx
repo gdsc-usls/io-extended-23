@@ -13,7 +13,7 @@ export const Certificate = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [data, loading] = useDoc<Omit<Member & { id: string }, "code">>(
-    doc(db, `certificates/io/members/${params.code}`)
+    doc(db, `certificates/io/members/${params.code?.toUpperCase()}`)
   );
 
   const cardRef = useRef<HTMLDivElement>(null);
