@@ -26,9 +26,9 @@ export const Certificate = () => {
     toast.message("Saving Image...");
 
     toPng(cardRef.current, {
-      canvasWidth: 3024.3,
-      canvasHeight: 4245,
+      skipAutoScale: true,
       cacheBust: true,
+      pixelRatio: 5,
     })
       .then((dataUrl) => {
         const link = document.createElement("a");
